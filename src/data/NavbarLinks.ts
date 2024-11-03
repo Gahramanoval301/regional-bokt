@@ -2,12 +2,12 @@ export const navbarLinks = [
   {
     id: 0,
     title: "Haqqımızda",
-    link: "/haqqımızda",
+    link: "/about",
   },
   {
     id: 1,
     title: "Məhsullar",
-    link: "/məhsullar",
+    link: "/products",
   },
   {
     id: 2,
@@ -17,6 +17,6 @@ export const navbarLinks = [
   {
     id: 3,
     title: "Əlaqə",
-    link: "/əlaqə",
+    link: "/contact",
   },
 ];
