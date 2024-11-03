@@ -5,23 +5,81 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --secondary-dark: #1C1B5D;
+  --secondary-light: #154C79;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --secondary-dark: #154C79;
+    --secondary-light: #1C1B5D;
   }
 }
 
 body {
-  color: var(--foreground);
+  color: var(--secondary-dark);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover{
+  color: var(--secondary-light);
+  text-decoration: underline;
+
+}
+
+@layer components {
+  /* .section {
+    @apply container mx-auto py-10 px-5 sm: p-10 my-10 w-11/12;
+  } */
+
+  .transition-classic {
+    @apply duration-300 ease-in-out transition-all;
+  }
+
+  .section-title {
+    @apply underline underline-offset-4 font-semibold text-lg mb-8
+  }
+  .section-title-big {
+    @apply  font-semibold text-xl mb-8 text-accent-violet uppercase text-center
+  }
+
+  .list-parent li {
+    @apply text-[16px] lg:text-lg
+  }
+
+  .section-gap {
+    @apply container mx-auto px-2 xl:px-16
+  }
+  .button-hover{
+    @apply hover:bg-secondary-light hover:text-gray-200 transition-classic
+  }
+  .image-hover{
+    @apply transition-classic hover:scale-105
+  }
+  .menu-item{
+    @apply hover:bg-accent-grey text-center text-xl py-0.5
+  }
+  .custom-input{
+    @apply border-2 border-black rounded-sm p-2 resize-none w-full
+  }
+  .error-message{
+    @apply text-red-600 text-xs mt-1
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .home-banner {
+    background-image: url("/home-bg.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 }
