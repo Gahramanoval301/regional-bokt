@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "checkTs": "npx tsc --noEmit"
   },
   "dependencies": {
     "axios": "^1.7.7",
     "formik": "^2.4.6",
+    "framer-motion": "^11.11.11",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
