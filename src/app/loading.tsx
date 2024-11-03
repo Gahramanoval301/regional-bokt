@@ -4,7 +4,7 @@ import React from "react";
 const loading = () => {
   return (
     <>
-      <div className="text-center">
+      <div className=" flex flex-col items-center w-[100vw] h-[100vh]">
         <CircularProgress />
       </div>
     </>
