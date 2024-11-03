@@ -1,6 +1,5 @@
 import Link from "next/link";
-import React, { useRef } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import React from "react";
 import { motion } from "framer-motion";
 
 interface ILink {
