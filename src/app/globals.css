@@ -11,10 +11,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1f1f1f;
     --foreground: #ededed;
-    --secondary-dark: #154C79;
-    --secondary-light: #1C1B5D;
+    --secondary-dark: #3331ac;
+    --secondary-light: #154C79;
   }
 }
 
@@ -24,7 +24,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a:hover{
+a:hover {
   color: var(--secondary-light);
   text-decoration: underline;
 
@@ -42,30 +42,36 @@ a:hover{
   .section-title {
     @apply underline underline-offset-4 font-semibold text-lg mb-8
   }
+
   .section-title-big {
-    @apply  font-semibold text-xl mb-8 text-accent-violet uppercase text-center
+    @apply font-semibold text-xl mb-8 text-accent-violet uppercase text-center
   }
 
   .list-parent li {
-    @apply text-[16px] lg:text-lg
+    @apply text-[16px] lg: text-lg
   }
 
   .section-gap {
     @apply container mx-auto px-2 xl:px-16
   }
-  .button-hover{
-    @apply hover:bg-secondary-light hover:text-gray-200 transition-classic
+
+  .button-hover {
+    @apply hover: bg-secondary-light hover:text-gray-200 transition-classic
   }
-  .image-hover{
+
+  .image-hover {
     @apply transition-classic hover:scale-105
   }
-  .menu-item{
+
+  .menu-item {
     @apply hover:bg-accent-grey text-center text-xl py-0.5
   }
-  .custom-input{
+
+  .custom-input {
     @apply border-2 border-black rounded-sm p-2 resize-none w-full
   }
-  .error-message{
+
+  .error-message {
     @apply text-red-600 text-xs mt-1
   }
 }
