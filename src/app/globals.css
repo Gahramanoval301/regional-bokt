@@ -48,7 +48,7 @@ a:hover {
   }
 
   .list-parent li {
-    @apply text-[16px] lg: text-lg
+    @apply text-[16px] lg:text-lg
   }
 
   .section-gap {
@@ -56,7 +56,7 @@ a:hover {
   }
 
   .button-hover {
-    @apply hover: bg-secondary-light hover:text-gray-200 transition-classic
+    @apply hover:bg-secondary-light hover:text-gray-200 transition-classic
   }
 
   .image-hover {
