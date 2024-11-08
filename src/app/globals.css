@@ -75,6 +75,9 @@ a:hover {
   .error-message {
     @apply text-red-600 text-xs mt-1
   }
+  .custom-input-2{
+    @apply outline-none bg-accent-grey border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+  }
 }
 
 @layer utilities {
@@ -88,5 +91,11 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
   }
-
+  .tranparent-scrollbar::-webkit-scrollbar {
+    display: none;  
+  }
+  .transparent-scrollbar {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;    
+  }
 }

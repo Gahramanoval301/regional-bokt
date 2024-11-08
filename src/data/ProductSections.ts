@@ -3,7 +3,7 @@ export const productsList = [
     id: 0,
     imgUrl: "/products/istehlak-product.png",
     title: "İSTEHLAK KREDİTİ",
-    link: "",
+    link: "?form=1",
     features: [
       "AR şəxsiyyət vəsiqəsi",
       "Rəsmi gəlirləri təsdiq edən sənəd",
@@ -15,7 +15,7 @@ export const productsList = [
     id: 1,
     imgUrl: "/products/aqro-product.png",
     title: "AQRO KREDİTİ",
-    link: "",
+    link: "?form=2",
     features: [
       "AR şəxsiyyət vəsiqəsi",
       "Kənd təsərrüfatını təsdiq edən arayış",
@@ -27,7 +27,7 @@ export const productsList = [
     id: 2,
     imgUrl: "/products/business-product.png",
     title: "BİZNES KREDİTİ",
-    link: "",
+    link: "?form=3",
     features: [
       "AR şəxsiyyət vəsiqəsi",
       "VÖEN",
@@ -40,7 +40,7 @@ export const productsList = [
     id: 3,
     imgUrl: "/products/lombard-product.png",
     title: "LOMBARD KREDİTİ",
-    link: "",
+    link: "?form=4",
     features: [
       "AR şəxsiyyət vəsiqəsi",
       "Təminat tələbi: Qızıl-zinət əşyası",

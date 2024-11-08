@@ -1,11 +1,18 @@
+"use client";
 import { IProductCard } from "@/interfaces/IProductCard";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import React, { useState } from "react";
+import ModalManager from "../_common/ModalManager";
 
 const ProductCard = ({ id, title, imgUrl, link, features }: IProductCard) => {
+  const params = useSearchParams();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const formId = params.get("form");
+
   return (
-    <Link href={link} className="hover:no-underline">
+    <div>
       <div key={id} className="rounded-3xl bg-accent-grey text-black">
         <div>
           <Image
@@ -29,10 +36,17 @@ const ProductCard = ({ id, title, imgUrl, link, features }: IProductCard) => {
               );
             })}
           </ul>
-          <p className="text-right font-semibold text-lg hover:underline hover:text-secondary-dark">Ətraflı</p>
+          <Link
+            href={link}
+            className="block text-right font-semibold text-lg hover:underline hover:text-secondary-dark"
+            onClick={() => setModalOpen(true)}
+          >
+            Ətraflı
+          </Link>
         </div>
       </div>
-    </Link>
+      <ModalManager formId={formId} open={isModalOpen} setOpen={setModalOpen} />
+    </div>
   );
 };
 
