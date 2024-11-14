@@ -7,7 +7,7 @@ export const initialValues = {
   salaryAmount: 0,
   finCode: "",
   workPlace: "",
-  checkTrue: false,
+  checked: false,
 };
 
 export const validationScheme = object().shape({
@@ -24,7 +24,7 @@ export const validationScheme = object().shape({
     .required("Phone number is required")
     .matches(/^[0-9]+$/, "Phone number must be digits")
     .min(10, "Phone number must be at least 10 digits"),
-  checkTrue: boolean().isTrue("This field must be selected"),
+  checked: boolean().isTrue("This field must be selected"),
 });
 export const inputDatas3 = [
   {
