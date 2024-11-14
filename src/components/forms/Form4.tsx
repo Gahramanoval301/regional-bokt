@@ -2,17 +2,31 @@ import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import MainButton from "../_common/MainButton";
 import { initialValues, inputDatas4, validationScheme } from "@/data/forms/form4";
+import toast from "react-hot-toast";
+import { sendLombardCredit } from "../../../api/credits";
 
 const Form4 = () => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationScheme}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          console.log(values);
+      onSubmit={async (values, actions) => {
+        try {
+          const res = await sendLombardCredit(values);
+          console.log(res, values);
+          if (res.status == 201) {
+            toast.success("Credit request is sent successfully!");
+            actions.resetForm();
+          } else {
+            toast.error("Something went wrong! Please try again.");
+          }
           actions.resetForm();
-        }, 1000);
+        } catch {
+          toast.success(
+            "Something went wrong! Please try again, otherwise contact with us!"
+          );
+          // console.log(err);
+        }
       }}
     >
       <Form>

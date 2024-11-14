@@ -11,10 +11,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1f1f1f;
+    --background: #474747;
     --foreground: #ededed;
-    --secondary-dark: #3331ac;
-    --secondary-light: #154C79;
+    --secondary-dark: #5754f8;
+    --secondary-light: #1e76be;
   }
 }
 
@@ -28,12 +28,11 @@ body {
 a:hover {
   color: var(--secondary-light);
   text-decoration: underline;
-
 }
 
 @layer components {
   /* .section {
-    @apply container mx-auto py-10 px-5 sm: p-10 my-10 w-11/12;
+    @apply container mx-auto py-10 px-5 sm:p-10 my-10 w-11/12;
   } */
 
   .transition-classic {

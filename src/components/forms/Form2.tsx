@@ -1,18 +1,35 @@
 import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import MainButton from "../_common/MainButton";
-import { initialValues, inputDatas2, validationScheme } from "@/data/forms/form2";
+import {
+  initialValues,
+  inputDatas2,
+  validationScheme,
+} from "@/data/forms/form2";
+import toast from "react-hot-toast";
+import { sendAqroCredit } from "../../../api/credits";
 
 const Form2 = () => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationScheme}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          console.log(values);
-          actions.resetForm();
-        }, 1000);
+      onSubmit={async (values, actions) => {
+        try {
+          const res = await sendAqroCredit(values);
+          // console.log(res, values);
+          if (res.status == 201) {
+            toast.success("Credit request is sent successfully!");
+            actions.resetForm();
+          } else {
+            toast.error("Something went wrong! Please try again.");
+          }
+        } catch {
+          toast.success(
+            "Something went wrong! Please try again, otherwise contact with us!"
+          );
+          // console.log(err);
+        }
       }}
     >
       <Form>
@@ -39,14 +56,14 @@ const Form2 = () => {
           })}
           <div className="col-span-2">
             <label className="text-sm pt-1">
-              <Field className="mr-1" name="checkTrue" type="checkbox" />
+              <Field className="mr-1" name="checked" type="checkbox" />
               Məlumatlarımın doğruluğunu təsdiq edir,kredit öhdəliklərim barədə
               məlumatları AKB kredit reyestrindən,şəxsi və iş yerim üzrə
               məlumatları isə “ASAN Finans” sistemi vasitəsilə əldə edilməsinə
               icazə verirəm.
             </label>
             <ErrorMessage
-              name={"checkTrue"}
+              name={"checked"}
               component="div"
               className="error-message"
             />

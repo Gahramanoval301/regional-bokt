@@ -13,7 +13,7 @@ const ProductCard = ({ id, title, imgUrl, link, features }: IProductCard) => {
 
   return (
     <div>
-      <div key={id} className="rounded-3xl bg-accent-grey text-black">
+      <div key={id} className="rounded-3xl  bg-accent-grey dark:bg-gray-400 text-black">
         <div>
           <Image
             className="w-[100%]"

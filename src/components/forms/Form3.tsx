@@ -2,6 +2,8 @@ import React from "react";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import MainButton from "../_common/MainButton";
 import { initialValues, inputDatas3, validationScheme } from "@/data/forms/form3";
+import toast from "react-hot-toast";
+import { sendBiznesCredit } from "../../../api/credits";
 
 
 const Form3 = () => {
@@ -9,11 +11,21 @@ const Form3 = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationScheme}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          console.log(values);
-          actions.resetForm();
-        }, 1000);
+      onSubmit={async (values, actions) => {
+        try {
+          const res = await sendBiznesCredit(values);
+          if (res.status == 201) {
+            toast.success("Credit request is sent successfully!");
+            actions.resetForm();
+          } else {
+            toast.error("Something went wrong! Please try again.");
+          }
+        } catch {
+          toast.success(
+            "Something went wrong! Please try again, otherwise contact with us!"
+          );
+          // console.log(err);
+        }
       }}
     >
       <Form>
@@ -40,14 +52,14 @@ const Form3 = () => {
           })}
           <div className="col-span-2">
             <label className="text-sm pt-1">
-              <Field className="mr-1" name="checkTrue" type="checkbox" />
+              <Field className="mr-1" name="checked" type="checkbox" />
               Məlumatlarımın doğruluğunu təsdiq edir,kredit öhdəliklərim barədə
               məlumatları AKB kredit reyestrindən,şəxsi və iş yerim üzrə
               məlumatları isə “ASAN Finans” sistemi vasitəsilə əldə edilməsinə
               icazə verirəm.
             </label>
             <ErrorMessage
-              name={"checkTrue"}
+              name={"checked"}
               component="div"
               className="error-message"
             />
