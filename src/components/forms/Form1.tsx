@@ -11,6 +11,8 @@ import {
   inputDatas1,
   validationScheme,
 } from "@/data/forms/form1";
+import { sendIstehlakCredit } from "../../../api/credits";
+import toast from "react-hot-toast";
 
 const Form1 = () => {
     
@@ -18,12 +20,20 @@ const Form1 = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationScheme}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          console.log(values);
-          actions.resetForm();
-          // actions.setSubmitting(false);
-        }, 1000);
+      onSubmit={async (values, actions) => {
+        try {
+          const res = await sendIstehlakCredit(values);
+          // console.log(res, values)
+          if (res.status == 201) {
+            toast.success("Credit request is sent successfully!");
+            actions.resetForm();
+          } else {
+            toast.error("Something went wrong! Please try again.");
+          }
+        } catch {
+          toast.success("Something wen wrong! Please try again, otherwise contact with us!");
+          // console.log(err);
+        }
       }}
     >
       <Form>
@@ -50,12 +60,12 @@ const Form1 = () => {
           })}
           <div className="col-span-2">
             <label className="text-sm pt-1">
-              <Field className="mr-1" name="checkTrue" type="checkbox" />
+              <Field className="mr-1" name="checked" type="checkbox" />
               Azərbaycan Kredit Bürosu və ASAN Finansdan şəxsi məlumatımın
                           İstifadəsinə Razıyam 
             </label>
             <ErrorMessage
-              name={"checkTrue"}
+              name={"checked"}
               component="div"
               className="error-message"
             />
