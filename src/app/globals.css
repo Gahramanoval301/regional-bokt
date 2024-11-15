@@ -77,8 +77,10 @@ a:hover {
   .custom-input-2{
     @apply outline-none bg-accent-grey border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
   }
+  .about-general{
+    @apply flex gap-10 lg:gap-20 justify-between text-lg flex-wrap md:flex-nowrap
 }
-
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -97,4 +99,46 @@ a:hover {
     -ms-overflow-style: none; 
     scrollbar-width: none;    
   }
+}
+
+/* custom scrollbar  */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    var(--secondary-dark),
+    var(--secondary-light)
+  ); 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--background); 
+}
+
+body {
+  scrollbar-width: thin; 
+  scrollbar-color: var(--secondary-dark) var(--background); 
+}
+
+/* Custom text selection */
+::selection {
+  background: var(--secondary-light);
+  color: var(--background); 
+}
+
+::-moz-selection {
+  background: var(--secondary-light); 
+  color: var(--background); 
 }
