@@ -7,6 +7,7 @@ import MainMenuDropdown from "./MainMenuDropdown";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { navbarLinks } from "@/data/NavbarLinks";
 import { useOutsideClick } from "@/hooks/useClickOutside";
+import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
   return (
     <header className="bg-primary px-6 pt-6 pb-4">
       <div className="flex justify-around items-center gap-8 lg:gap-0">
-        <div>
+        <Link href="/">
           <Image
             className="w-40 sm:w-60"
             src={"/common/regional_bokt.svg"}
@@ -32,7 +33,7 @@ const Header = () => {
             height={140}
             alt="Regional Bokt"
           />
-        </div>
+        </Link>
         <div className="hidden md:block">
           <Navbar />
         </div>
