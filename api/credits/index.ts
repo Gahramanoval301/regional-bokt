@@ -1,6 +1,10 @@
 import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL + "/api/Credits";
 
+console.log(`Requesting: ${process.env.NEXT_PUBLIC_API_URL}/api/Credits/aqro`);
+console.log("API Base URL:", process.env.NEXT_PUBLIC_API_URL);
+
+
 //post requets
 export const sendIstehlakCredit = async (data: any) => {
   const res = await axios.post(`${BASE_URL}/istehlak`, data);
