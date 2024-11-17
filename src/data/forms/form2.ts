@@ -16,7 +16,6 @@ export const validationScheme = object().shape({
   aboutSalary: string().required("Surname is required"),
   workPlace: string().required("This field is required"),
   finCode: string()
-    .length(6, "Fin code is wrong")
     .required("Fin Code is required"),
   phoneNumber: string()
     .required("Phone number is required")

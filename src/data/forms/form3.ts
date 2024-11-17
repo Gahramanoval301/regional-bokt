@@ -18,7 +18,6 @@ export const validationScheme = object().shape({
     .min(100, "min can be ${min}")
     .required("Salary ammount is required"),
   finCode: string()
-    .length(6, "Fin code is wrong")
     .required("Fin Code is required"),
   phoneNumber: string()
     .required("Phone number is required")
