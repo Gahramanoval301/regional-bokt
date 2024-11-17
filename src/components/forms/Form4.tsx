@@ -22,7 +22,7 @@ const Form4 = () => {
           }
           actions.resetForm();
         } catch {
-          toast.success(
+          toast.error(
             "Something went wrong! Please try again, otherwise contact with us!"
           );
           // console.log(err);
