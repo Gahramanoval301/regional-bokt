@@ -28,7 +28,7 @@ const Header = () => {
         <Link href="/">
           <Image
             className="w-40 sm:w-60"
-            src={"/common/regional_bokt.svg"}
+            src={"/common/regional_bokt.png"}
             width={280}
             height={140}
             alt="Regional Bokt"

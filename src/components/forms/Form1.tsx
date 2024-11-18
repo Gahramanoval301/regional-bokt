@@ -31,7 +31,7 @@ const Form1 = () => {
             toast.error("Something went wrong! Please try again.");
           }
         } catch {
-          toast.success("Something wen wrong! Please try again, otherwise contact with us!");
+          toast.error("Something wen wrong! Please try again, otherwise contact with us!");
           // console.log(err);
         }
       }}

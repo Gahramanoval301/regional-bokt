@@ -10,6 +10,8 @@ import {
 } from "formik";
 import MainButton from "../_common/MainButton";
 import * as Yup from "yup";
+import { sendContactForm } from "../../../api/contact";
+import toast from "react-hot-toast";
 
 // interface FormValues {
 //   email: string;
@@ -40,11 +42,11 @@ const ContactForm: React.FC = () => {
     email: Yup.string()
       .email("Invalid email format")
       .required("Email is required"),
-    phoneNumber: Yup.string()
+    phone: Yup.string()
       .required("Phone number is required")
       .matches(/^[0-9]+$/, "Phone number must be digits")
       .min(10, "Phone number must be at least 10 digits"), // Adjust based on your requirements
-    description: Yup.string()
+    message: Yup.string()
       .required("Description is required")
       .min(20, "Description must be at least 20 characters"), // Adjust based on your requirements
   });
@@ -54,23 +56,26 @@ const ContactForm: React.FC = () => {
       <Formik
         initialValues={{
           email: "",
-          phoneNumber: "",
-          description: "",
+          phone: "",
+          message: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            console.log(values);
+        onSubmit={async (values, actions) => {
+          const res = await sendContactForm(values);
+          if (res.status == 201) {
+            toast.success("Form is submitted successfully!");
             actions.resetForm();
-            // actions.setSubmitting(false);
-          }, 1000);
+          } else {
+            toast.error(
+              "Something went wrong! Please try again. Otherwise, please contact with us."
+            );
+          }
         }}
       >
-        {/* props: FormikProps<FormValues></FormValues> */}
         {() => (
           <Form>
             <div className="grid gap-4 grid-cols-2">
-              <div >
+              <div>
                 <Field
                   className="custom-input"
                   name="email"
@@ -87,11 +92,11 @@ const ContactForm: React.FC = () => {
               <div>
                 <Field
                   className="custom-input "
-                  name="phoneNumber"
+                  name="phone"
                   placeholder="Əlaqə Nömrəsi"
                 />
                 <ErrorMessage
-                  name="phoneNumber"
+                  name="phone"
                   component="div"
                   className="error-message"
                 />
@@ -100,13 +105,13 @@ const ContactForm: React.FC = () => {
                 <Field
                   component={CustomInputComponent}
                   className="custom-input"
-                  name="description"
+                  name="message"
                   placeholder="Məktubunuzu bura yazın..."
                   as={CustomInputComponent}
                 />
 
                 <ErrorMessage
-                  name="description"
+                  name="message"
                   component="div"
                   className="error-message"
                 />
